@@ -29,6 +29,7 @@ module.exports = function(router, database) {
       if (bcrypt.compareSync(password, user.password)) {
         return user;
       }
+      console.log("problem logging in")
       return null;
     });
   }
@@ -42,6 +43,7 @@ module.exports = function(router, database) {
           res.send({error: "error"});
           return;
         }
+        console.log("all good")
         req.session.userId = user.id;
         res.send({user: {name: user.name, email: user.email, id: user.id}});
       })
