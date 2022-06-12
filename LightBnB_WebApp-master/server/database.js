@@ -79,7 +79,6 @@ const getAllReservations = function (guest_id, limit = 10) {
   `;
 
   const params = [guest_id, limit];
-  console.log(guest_id)
 
   return pool.query(queryString, params).then(res => res.rows)
 }
